@@ -7,8 +7,8 @@ public class TempConversionWindow extends JFrame implements ActionListener{
     private Container pane;
     private JLabel C;
     private JLabel F;
-    private TextField t1;
-    private TextField t2;
+    private JTextField t1;
+    private JTextField t2;
 
     public static double CtoF(double t){
 	return ((t * (9/5)) + 32);
@@ -48,11 +48,12 @@ public class TempConversionWindow extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
 	String s = t1.getText();
 	int i = Integer.parseInt(s);
+	String event = e.getActionCommand();
 	if (event.equals("CtoF")){
-	    t2.setText(CtoF(i));
+	    t2.setText(String.valueOf(CtoF(i)));
 	}
 	if (event.equals("FtoC")){
-	    t2.setText(FtoC(i));
+	    t2.setText(String.valueOf(FtoC(i)));
 	}
     }
 }
