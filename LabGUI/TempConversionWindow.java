@@ -10,12 +10,12 @@ public class TempConversionWindow extends JFrame implements ActionListener{
     private JTextField t1;
     private JTextField t2;
 
-    public static double CtoF(double t){
-	return ((t * (9/5)) + 32);
+    public  double CtoF(double t){
+	return ((t * (9.0/5.0)) + 32);
     }
 
-    public static double FtoC(double t){
-	return ((t - 32) * (5 / 9));
+    public double FtoC(double t){
+	return ((t - 32) * (5.0 / 9.0));
     }
 
     public TempConversionWindow(){
