@@ -46,6 +46,7 @@ public class TempConversionWindow extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e){
+	try{
 	String s = t1.getText();
 	int i = Integer.parseInt(s);
 	String event = e.getActionCommand();
@@ -54,6 +55,9 @@ public class TempConversionWindow extends JFrame implements ActionListener{
 	}
 	if (event.equals("FtoC")){
 	    t2.setText(String.valueOf(FtoC(i)));
+	} 
+	} catch (NumberFormatException n) {
+	    t2.setText("Please enter a number");
 	}
     }
 }
