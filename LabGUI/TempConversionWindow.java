@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class TempConversionWindow{
+public class TempConversionWindow extends JFrame implements ActionListener{
     
     private Container pane;
     private JLabel C;
@@ -20,19 +20,19 @@ public class TempConversionWindow{
 
     public TempConversionWindow(){
 	this.setTitle("Farenheit and Celsius");
-	this.setSize(500, 500);
+	this.setSize(600, 400);
 	this.setLocation(100,100);
 	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 	pane = this.getContentPane();
 	pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
 
-	JButton CF = new JButton("Celsius to Farenheit");
-	CF.addActionListener(this);
-	CF.setActionCommand("CtoF");
-	JButton FC = new JButton("Farenheit to Celsius");
-	FC.addActionListener(this);
-	FC.setActionCommand("FtoC");
+	JButton C = new JButton("Celsius to Farenheit");
+	C.addActionListener(this);
+	C.setActionCommand("CtoF");
+	JButton F = new JButton("Farenheit to Celsius");
+	F.addActionListener(this);
+	F.setActionCommand("FtoC");
     
 
 	t1 = new JTextField(1);
@@ -40,8 +40,8 @@ public class TempConversionWindow{
     
 
 	pane.add(t1);
-	pane.add(CF);
-	pane.add(FC);
+	pane.add(C);
+	pane.add(F);
 	pane.add(t2);
     }
 
