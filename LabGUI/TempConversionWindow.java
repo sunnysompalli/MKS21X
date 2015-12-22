@@ -29,6 +29,30 @@ public class TempConversionWindow{
 
 	JButton CF = new JButton("Celsius to Farenheit");
 	CF.addActionListener(this);
-	b.setActionCommand("CtoF");
+	CF.setActionCommand("CtoF");
+	JButton FC = new JButton("Farenheit to Celsius");
+	FC.addActionListener(this);
+	FC.setActionCommand("FtoC");
+    
+
+	t1 = new JTextField(1);
+	t2 = new JTextField(1);
+    
+
+	pane.add(t1);
+	pane.add(CF);
+	pane.add(FC);
+	pane.add(t2);
+    }
+
+    public void actionPerformed(ActionEvent e){
+	String s = t1.getText();
+	int i = Integer.parseInt(s);
+	if (event.equals("CtoF")){
+	    t2.setText(CtoF(i));
+	}
+	if (event.equals("FtoC")){
+	    t2.setText(FtoC(i));
+	}
     }
 }
