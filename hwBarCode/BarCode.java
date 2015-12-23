@@ -3,6 +3,8 @@ public class BarCode implements Comparable{
     private String _zip;
     private int _checkDigit;
 
+    String[]code = {"||:::", ":::||", "::|:|", "::||:", ":|::|", ":|:|:", ":||::", "|:::|", "|::|:", "|:|::"};
+
     // constructors
     //precondtion: zip.length() = 5 and zip contains only digits.
     //postcondition: throws a runtime exception zip is not the correct length
@@ -38,7 +40,9 @@ public class BarCode implements Comparable{
 
     //postcondition: format zip + check digit + barcode 
     //ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|"      
-    public String toString(){}
+    public String toString(){
+	return _zip;
+    }
 
 
     public boolean equals(Object other){}
