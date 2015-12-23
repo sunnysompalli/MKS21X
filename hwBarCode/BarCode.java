@@ -41,7 +41,12 @@ public class BarCode implements Comparable{
     //postcondition: format zip + check digit + barcode 
     //ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|"      
     public String toString(){
-	return _zip;
+	String barcode = "";
+	for (int i = 0; i < 5; i++){
+	    barcode += code[Integer.parseInt(_zip.substring(i, i + 1))];
+	}
+	barcode += code[_checkDigit];
+	return _zip + _checkDigit + "  " + barcode;
     }
 
 
