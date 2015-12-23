@@ -58,7 +58,20 @@ public class BarCode implements Comparable{
     // true when they match.
 
 
-    public int compareTo(Comparable other){}
+    public int compareTo(Object other){
+	if (other instanceof BarCode){
+	    if (Integer.parseInt(_zip) < Integer.parseInt(((BarCode) other)._zip)){
+		return -1;
+	    }
+	    if (Integer.parseInt(_zip) > Integer.parseInt(((BarCode) other)._zip)){
+		return 1;
+	    } 
+	    if (_zip.equals(((BarCode) other)._zip)){
+		return 0; 
+	    }
+	} 
+	return 1;
+    }
     // postcondition: compares the zip + checkdigit 
 
 }
