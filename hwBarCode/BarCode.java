@@ -21,7 +21,10 @@ public class BarCode implements Comparable{
     }
 
     // postcondition: Creates a copy of a bar code.
-    public BarCode(BarCode x){}
+    public BarCode(BarCode x){
+	this._zip = x._zip;
+	this._checkDigit = x._checkDigit;
+    }
 
 
     //post: computes and returns the check sum for _zip
