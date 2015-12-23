@@ -9,13 +9,15 @@ public class BarCode implements Comparable{
     //               or zip contains a non digit
     //               _zip and _checkDigit are initialized.
     public BarCode(String zip) {
-	if (zip.length != 5){
-	    throw new RuntimeException;
+	if (zip.length() != 5){
+	    throw new RuntimeException();
 	}
 	_zip = zip;
+	int sum = 0;
 	for (int i = 0; i < 5; i ++){
-	    i += integer
+	    sum += Integer.parseInt(_zip.substring(i, i + 1));
 	}
+	_checkDigit = sum % 10;
     }
 
     // postcondition: Creates a copy of a bar code.
