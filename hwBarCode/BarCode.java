@@ -28,7 +28,13 @@ public class BarCode implements Comparable{
 
 
     //post: computes and returns the check sum for _zip
-    private int checkSum(){}
+    private int checkSum(){
+	int ans = 0;
+	for (int i = 0; i < 5; i ++){
+	    ans += Integer.parseInt(_zip.substring(i, i + 1));
+	}
+	return ans;
+    }
 
     //postcondition: format zip + check digit + barcode 
     //ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|"      
