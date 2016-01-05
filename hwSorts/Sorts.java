@@ -21,6 +21,21 @@ public class Sorts{
 		x -= 1;
 	    }
 	}
-    } 
+    }
+
+    public static void selectionSort(int[]data){
+	for (int i = 0; i < data.length; i++){
+	    int holder;
+	    int min = i;
+	    for (int j = i + 1; j < data.length; j++){
+		if (Math.min(data[min], data[j]) != data[min]){
+		    min = j;
+		}
+	    }
+	    holder = data[i];
+	    data[i] = data[min];
+	    data[min] = holder;
+	}
+    }
 }
 
