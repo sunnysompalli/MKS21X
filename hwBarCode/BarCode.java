@@ -3,40 +3,75 @@ public class BarCode implements Comparable{
     private String _zip;
     private int _checkDigit;
 
+    String[]code = {"||:::", ":::||", "::|:|", "::||:", ":|::|", ":|:|:", ":||::", "|:::|", "|::|:", "|:|::"};
+
     // constructors
     //precondtion: zip.length() = 5 and zip contains only digits.
     //postcondition: throws a runtime exception zip is not the correct length
     //               or zip contains a non digit
     //               _zip and _checkDigit are initialized.
     public BarCode(String zip) {
-	if (zip.length != 5){
-	    throw new RuntimeException;
+	if (zip.length() != 5){
+	    throw new RuntimeException();
 	}
 	_zip = zip;
+	int sum = 0;
 	for (int i = 0; i < 5; i ++){
-	    i += integer
+	    sum += Integer.parseInt(_zip.substring(i, i + 1));
 	}
+	_checkDigit = sum % 10;
     }
 
     // postcondition: Creates a copy of a bar code.
-    public BarCode(BarCode x){}
+    public BarCode(BarCode x){
+	this._zip = x._zip;
+	this._checkDigit = x._checkDigit;
+    }
 
 
     //post: computes and returns the check sum for _zip
-    private int checkSum(){}
+    private int checkSum(){
+	int ans = 0;
+	for (int i = 0; i < 5; i ++){
+	    ans += Integer.parseInt(_zip.substring(i, i + 1));
+	}
+	return ans;
+    }
 
     //postcondition: format zip + check digit + barcode 
     //ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|"      
-    public String toString(){}
+    public String toString(){
+	String barcode = "";
+	for (int i = 0; i < 5; i++){
+	    barcode += code[Integer.parseInt(_zip.substring(i, i + 1))];
+	}
+	barcode += code[_checkDigit];
+	return _zip + _checkDigit + "  " + barcode;
+    }
 
 
-    public boolean equals(Object other){}
+    public boolean equals(Object other){
+	return this == other || (other instanceof BarCode && _zip.equals(((BarCode) other)._zip));
+    }
     // postcondition: false if the object is not a BarCode, 
     // false if it is a non-matching barcode
     // true when they match.
 
 
-    public int compareTo(Comparable other){}
+    public int compareTo(Object other){
+	if (other instanceof BarCode){
+	    if (Integer.parseInt(_zip) < Integer.parseInt(((BarCode) other)._zip)){
+		return -1;
+	    }
+	    if (Integer.parseInt(_zip) > Integer.parseInt(((BarCode) other)._zip)){
+		return 1;
+	    } 
+	    if (_zip.equals(((BarCode) other)._zip)){
+		return 0; 
+	    }
+	} 
+	return 1;
+    }
     // postcondition: compares the zip + checkdigit 
 
 }
